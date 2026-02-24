@@ -1,20 +1,12 @@
-a = int(input())
-b = input()
+import sys
+input = sys.stdin.readline
 
-b.split()
+a = int(input().rstrip())
+b = input().rstrip()
 
-c = int(b[0])
-d = int(b[1])
-e = int(b[2])
+res3 = a * int(b[2])
+res4 = a * int(b[1])
+res5 = a * int(b[0])
+res6 = res3 + (res4 * 10) + (res5 * 100)
 
-
-f = a * e
-g = a * d
-h = a * c
-
-result = f + (g * 10) + (h * 100)
-
-print(f)
-print(g)
-print(h)
-print(result)
+print(res3, res4, res5, res6, sep='\n')
