@@ -1,7 +1,6 @@
-y = input()
+import sys
+input = sys.stdin.readline
 
-s = int(y)
+a = int(input().rstrip())
 
-ty = (s - 543)
-
-print(ty)
+print(a - 543)
