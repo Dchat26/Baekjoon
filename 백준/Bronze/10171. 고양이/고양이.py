@@ -1,4 +1,7 @@
-print("\\    /\\")
+import sys
+input = sys.stdin.readline
+
+print("\    /\\")
 print(" )  ( ')")
 print("(  /  )")
-print(" \\(__)|")
+print(" \(__)|")
