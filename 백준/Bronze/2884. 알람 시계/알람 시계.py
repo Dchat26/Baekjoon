@@ -1,10 +1,26 @@
-h, m = map(int, input().split())
+import sys
+input = sys.stdin.readline
 
-total_time = ((h * 60) + m) - 45
+def Time(hour: int, minute: int) -> tuple:
+    total_time = ((hour * 60) + minute) - 45
+    total_time %= 1440
+    
+    resH, resM = divmod(total_time, 60)
+    
+    return resH, resM
+   
+def solve():
+    try:
+        line = input().split()
+        if not line: return
+        
+        h, m = map(int, line)
+        
+        resH, resM = Time(h, m)
+        
+        print(resH, resM)
+    except ValueError:
+        pass
 
-total_time %= 1440
-
-set_h = total_time // 60
-set_m = total_time % 60
-
-print(set_h, set_m)
+if __name__ == "__main__":
+    solve()
