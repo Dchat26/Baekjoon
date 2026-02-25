@@ -1,12 +1,19 @@
-score = int(input())
+import sys
+input = sys.stdin.readline
 
-if 90 <= score <= 100:
-    print("A")
-elif 80 <= score <= 89:
-    print("B")
-elif 70 <= score <= 79:
-    print("C")
-elif 60 <= score <= 69:
-    print("D")
-else:
-    print("F")
+def solve():
+    a = int(input().rstrip())
+
+    if (a >= 90):
+        print("A")
+    elif (89 >= a >= 80):
+        print("B")
+    elif (79 >= a >= 70):
+        print("C")
+    elif (69 >= a >= 60):
+        print("D")
+    else:
+        print("F")
+
+if __name__ == "__main__":
+    solve()
