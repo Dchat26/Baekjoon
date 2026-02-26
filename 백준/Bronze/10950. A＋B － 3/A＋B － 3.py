@@ -1,6 +1,25 @@
-n = int(input())
+import sys
+input = sys.stdin.readline
 
-n_list = [list(map(int, input().split())) for i in range(n)]
+def Mul(n: int):
+    for _ in range(n):
+        line = input().split()
+        if not line: return
+        
+        a, b = map(int, line)
+        
+        print(a + b)
 
-for i in range(n):
-    print(sum(n_list[i]))
+def solve():
+    try:
+        line = input().rstrip()
+        if not line: return
+        n = int(line)
+        
+        Mul(n)
+        
+    except ValueError:
+        pass
+
+if __name__ == "__main__":
+    solve()
