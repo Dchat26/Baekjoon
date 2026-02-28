@@ -1,7 +1,18 @@
-n_list = list(int(input()) for _ in range(10))
+import sys
+input = sys.stdin.read
 
-d_list = []
-for i in n_list:
-    d_list.append(i % 42)
+def cal_remain(data: list[str]):
+    result = set()
+    for i in data:
+        result.add(int(i) % 42)
+        
+    print(len(result))
     
-print(len(set(d_list)))
+def solve():
+    data = input().split()
+    if not data: return
+
+    cal_remain(data)
+
+if __name__ == "__main__":
+    solve()
