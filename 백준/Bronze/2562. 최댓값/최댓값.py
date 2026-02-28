@@ -1,10 +1,12 @@
-n_list = [int(input()) for i in range(9)]
+import sys
+input = sys.stdin.readline
 
-print(max(n_list))
-
-count = 1
-for i in n_list:
-    if max(n_list) != i:
-        count += 1
-    else:
-        print(count)
+def MaxIndex(nlist: list[int]):
+    max_val = max(nlist)
+    print(max_val, (nlist.index(max_val) + 1), sep="\n")
+def solve():
+    nlist = [int(input()) for _ in range(9)]
+    
+    MaxIndex(nlist)
+if __name__ == "__main__":
+    solve()
