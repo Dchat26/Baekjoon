@@ -9,6 +9,8 @@ def solve():
     nlist = [int(input()) for _ in range(9)]
     
     MaxIndex(nlist)
+    
 if __name__ == "__main__":
     solve()
+
 
