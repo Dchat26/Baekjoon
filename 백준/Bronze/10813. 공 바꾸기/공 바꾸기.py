@@ -1,9 +1,25 @@
-N, M = map(int, input().split())
+import sys
+input = sys.stdin.readline
 
-baskets = [i for i in range(1, N + 1)]
+def swap_basket(basket: list[int], m: int):
+    for _ in range(m):
+        line = input().split()
+        if not line: return
+        
+        i, j = map(int, line)
+        
+        basket[i - 1], basket[j - 1] = basket[j - 1], basket[i - 1]
 
-for _ in range(M):
-    i, j = map(int, input().split())
-    baskets[i-1], baskets[j-1] = baskets[j-1], baskets[i-1]
+def solve():
+    line = input().split()
+    if not line: return
     
-print(*baskets)
+    n, m = map(int, line)
+    basket = list(range(1, n + 1))
+    
+    swap_basket(basket, m)
+    
+    print(*basket)
+
+if __name__ == "__main__":
+    solve()
