@@ -1,6 +1,15 @@
-n = int(input())
+import sys
+input = sys.stdin.readline
 
-n_list = list(input() for _ in range(n))
-
-for i in n_list:
-    print(i[0] + i[-1])
+def solve():
+    n = int(input().rstrip())
+    if not n: return
+    
+    for _ in range(n):
+        t = input().rstrip()
+        if not t: return
+        
+        print(t[0] + t[-1])
+    
+if __name__ == "__main__":
+    solve()
