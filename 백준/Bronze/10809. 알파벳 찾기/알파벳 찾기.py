@@ -1,6 +1,14 @@
-n = input()
+import sys
+input = sys.stdin.readline
 
-for i in range(ord('a'), ord('z') + 1):
-    char = chr(i)
+def solve():
+    s = input().rstrip()
+    if not s: return
     
-    print(n.find(char), end=' ')
+    for i in range(ord('a'), ord('z') + 1):
+        c = chr(i)
+        
+        print(s.find(c), end=" ")
+    
+if __name__ == "__main__":
+    solve()
