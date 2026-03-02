@@ -1,5 +1,11 @@
 import sys
+input = sys.stdin.read
 
-data = sys.stdin.read()
-
-print(data, end='')
+def solve():
+    data = input()
+    if not data: return
+    
+    print(data)
+    
+if __name__ == "__main__":
+    solve()
