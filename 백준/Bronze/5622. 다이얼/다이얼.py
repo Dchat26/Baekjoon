@@ -1,11 +1,19 @@
-s = input()
+import sys
+input = sys.stdin.readline
 
-dial = ['ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
-
-time_s = 0
-for i in s:
-    for a, group in enumerate(dial):
-        if i in group:
-            time_s += a + 3
-
-print(time_s)
+def solve():
+    s = input().rstrip()
+    if not s: return
+    
+    dial = ["ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"]
+    
+    total_time = 0
+    for i in s:
+        for j, group in enumerate(dial):
+            if i in group:
+                total_time += j + 3
+    
+    print(total_time)
+    
+if __name__ == "__main__":
+    solve()
