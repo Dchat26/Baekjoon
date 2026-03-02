@@ -1,6 +1,13 @@
-a, b = input().split()
+import sys
+input = sys.stdin.readline
 
-a1 = "".join(reversed(a))
-b1 = "".join(reversed(b))
-
-print(max(a1, b1))
+def solve():
+    s = input().split()
+    if not s: return
+    
+    a, b = "".join(reversed(s[0])), "".join(reversed(s[1])) 
+    
+    print(max(int(a), int(b)))
+    
+if __name__ == "__main__":
+    solve()
