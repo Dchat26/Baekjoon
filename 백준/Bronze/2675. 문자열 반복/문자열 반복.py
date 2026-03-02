@@ -1,14 +1,18 @@
-n = int(input())
+import sys
+input = sys.stdin.readline
 
-n_list = []
-for _ in range(n):
-    r, s = input().split()
+def solve():
+    n = int(input().rstrip())
+    if not n: return
     
-    r = int(r)
+    for _ in range(n):
+        t = input().split()
+        if not t: return
+        
+        tn = int(t[0])
+        for i in t[1]:
+            print(i * tn, end="")
+        print()
     
-    result = ""
-    for i in s:
-        result += i * r
-    n_list.append(result)
-    
-print(*(st for st in n_list), sep='\n')
+if __name__ == "__main__":
+    solve()
