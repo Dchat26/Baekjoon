@@ -1,13 +1,18 @@
-s = input().upper()
+from collections import Counter
+import sys
+input = sys.stdin.readline
 
-compare = 0
-alp = ""
-for i in range(ord('A'), ord('Z') + 1):
-    r = s.count(chr(i))
-    if r > compare:
-        compare = r
-        alp = chr(i)
-    elif r == compare:
-        alp = '?'
-
-print(alp)
+    
+def solve():
+    s = input().rstrip().upper()
+    if not s: return
+    
+    cnt = Counter(s).most_common()
+    
+    if len(cnt) > 1 and cnt[0][1] == cnt[1][1]:
+        print("?")
+    else:
+        print(cnt[0][0])
+    
+if __name__ == "__main__":
+    solve()
