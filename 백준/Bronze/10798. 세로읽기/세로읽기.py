@@ -1,8 +1,18 @@
 import sys
+input = sys.stdin.readline
 
-s_list = [list(line.strip()) for line in sys.stdin]
-
-for i in range(15):
-    for s in range(5):
-        if i < len(s_list[s]):
-            print(s_list[s][i], end='')
+def solve():
+    data = []
+    for _ in range(5):
+        line = input().rstrip()
+        if not line: return
+        
+        data.append(list(line))
+    
+    for i in range(15):
+        for j in range(5):
+            if i < len(data[j]):
+                print(data[j][i], end="")
+        
+if __name__ == "__main__":
+    solve()
