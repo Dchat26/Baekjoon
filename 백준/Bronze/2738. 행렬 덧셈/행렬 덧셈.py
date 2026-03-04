@@ -1,9 +1,30 @@
-N, M = map(int, input().split())
+import sys
+input = sys.stdin.readline
 
-A_list = [list(map(int, input().split())) for _ in range(N)]
-B_list = [list(map(int, input().split())) for _ in range(N)]
+def add_ab(alist: list[int], blist: list[int]):
+    for row_a, row_b in zip(alist, blist, strict=True):
+        for a, b in zip(row_a, row_b, strict=True):
+            print(a + b, end=" ")
+        print()
 
-for i in range(N):
-    for s in range(M):
-        print(A_list[i][s] + B_list[i][s], end=' ')
-    print()
+def solve():
+    line = input().split()
+    if not line: return
+    n, m = map(int, line)
+    
+    alist = []
+    for _ in range(n):
+        line = input().split()
+        if not line: return
+        alist.append(list(map(int, line)))
+        
+    blist = []    
+    for _ in range(n):
+        line = input().split()
+        if not line: return
+        blist.append(list(map(int, line)))
+        
+    add_ab(alist, blist)
+    
+if __name__ == "__main__":
+    solve()
