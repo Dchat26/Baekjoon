@@ -1,10 +1,19 @@
-N, B = map(int, input().split())
+import sys
+input = sys.stdin.readline
 
-chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-result = ""
-while N > 0:
-    N, a = divmod(N, B)
-    result += chars[a]
+def solve():
+    line = input().split()
+    if not line: return
+    n, b = map(int, line)
     
-print(result[::-1])
+    chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    
+    result = ""
+    while (n > 0):
+        n, a = divmod(n, b)
+        result += chars[a]
+        
+    print(result[::-1])
+        
+if __name__ == "__main__":
+    solve()
