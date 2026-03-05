@@ -1,3 +1,13 @@
-A, B, V = map(int, input().split())
+import sys
+input = sys.stdin.readline
 
-print((V - B - 1) // (A - B) + 1)
+def solve():
+    line = input().split()
+    if not line: return
+    
+    a, b, v = map(int, line)
+    
+    print((v - b - 1) // (a - b) + 1)
+    
+if __name__ == "__main__":
+    solve()
