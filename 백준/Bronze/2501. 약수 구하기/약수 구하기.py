@@ -1,12 +1,19 @@
-n, c = map(int, input().split())
+import sys
+input = sys.stdin.readline
 
-n_list = []
-for i in range(n, 0, -1):
-    a, b = divmod(n, i)
-    if b == 0:
-        n_list.append(a)
+def solve():
+    line = input().split()
+    if not line: return
+    a, b = map(int, line)
+    
+    count = 0
+    for i in range(1, a + 1):
+        if a % i == 0:
+            count += 1
+            if count == b:
+                print(i)
+                return
+    print(0)
         
-if len(n_list) < c:
-    print("0")
-else:
-    print(n_list[c-1])
+if __name__ == "__main__":
+    solve()
