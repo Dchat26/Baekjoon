@@ -1,15 +1,35 @@
-n = int(input())
+import sys
 
-for _ in range(n):
-    a, b = map(int, input().split())
-    
-    ap = 1
-    for i in range(a, 0, -1): ap *= i
+input = sys.stdin.readline
+write = sys.stdout.write
 
-    bp = 1
-    for j in range(b, 0, -1): bp *= j
+def fac(num: int):
+    val = 1
+    for i in range(1, num + 1):
+        val *= i
+        
+    return val
+
+def solve():
+    n = int(input().rstrip())
+    if not n: return
     
-    bap = 1
-    for k in range((b - a), 0, -1): bap *= k
+    result = []
+    for _ in range(n):
+        line = input().split()
+        if not line: return
     
-    print(bp // (ap * bap))
+        n, k = map(int, line)
+        if 0 > n: return
+        if n > k or k > 30: return
+    
+        nfac = fac(n)
+        kfac = fac(k)
+        knfac = fac(k - n)
+        
+        result.append(str(kfac // (nfac * knfac)))
+    
+    write("\n".join(result) + "\n")
+    
+if __name__ == "__main__":
+    solve()
