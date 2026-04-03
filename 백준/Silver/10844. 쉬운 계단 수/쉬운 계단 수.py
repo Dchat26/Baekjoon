@@ -1,10 +1,14 @@
 import sys
+
 input = sys.stdin.readline
+write = sys.stdout.write
+
+MOD = 1000000000
 
 def solve():
-    n = int(input())
-    mod = 1000000000
-    
+    n = int(input().rstrip())
+    if not n: return
+
     dp = [[0] * 10 for _ in range(n + 1)]
     
     for j in range(1, 10):
@@ -19,9 +23,9 @@ def solve():
             else:
                 dp[i][j] = dp[i-1][j-1] + dp[i-1][j+1]
             
-            dp[i][j] %= mod
+            dp[i][j] %= MOD
             
-    print(sum(dp[n]) % mod)
+    write(str(sum(dp[n]) % MOD) + "\n")
 
 if __name__ == "__main__":
     solve()
