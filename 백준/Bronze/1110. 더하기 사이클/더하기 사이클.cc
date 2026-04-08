@@ -1,8 +1,13 @@
-#include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 int main(void) {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+
 	int n = 0;
-	if (scanf("%d", &n) != 1) return 0;
+	if (!(cin >> n)) return 0;
 
 	int origin = n;
 	int count = 0;
@@ -15,7 +20,7 @@ int main(void) {
 		if (origin == n) break;
 	}
 
-	printf("%d\n", count);
+	cout << count << "\n"; 
 
 	return 0;
 }
