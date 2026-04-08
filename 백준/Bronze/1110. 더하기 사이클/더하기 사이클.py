@@ -4,22 +4,19 @@ input = sys.stdin.readline
 write = sys.stdout.write
 
 def solve():
-    n = int(input().rstrip())
-    if (n == 0):
-        write("1\n")
-        return
+    line = input().rstrip()
+    if not line: return
     
-    if (n < 10): n *= 10
-    
-    res = n
+    n = int(line)
+    origin = n
     count = 0
-    while (True):
+    
+    while True:
         count += 1
-        current = (res % 10) * 10
-        temp = ((res // 10) + (res % 10)) % 10
-        res = current + temp
+        temp = (n // 10 + n % 10) % 10
+        n = (n % 10) * 10 + temp
         
-        if res == n:
+        if origin == n:
             break
         
     write(str(count) + "\n")
