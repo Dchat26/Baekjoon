@@ -1,25 +1,28 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
+#include <ctype.h>
+
+using namespace std;
 
 int main(void) {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+
 	int n = 0;
-	if (scanf("%d", &n) != 1) return 0;
+	if (!(cin >> n)) return 0;
 
-	char* answer = (char*)malloc((n + 1) * sizeof(char));
-	if (answer == NULL) return -1;
-	if (scanf("%s", answer) != 1) return 0;
+	string answer;
+	if (!(cin >> answer)) return 0;
 
-	for (int i = 0; i < n; i++) {
-		if (answer[i] >= 65 && answer[i] <= 97) {
-			answer[i] = answer[i] + ('a' - 'A');
+	for (char& c : answer) {
+		if (isupper(c)) {
+			c = tolower(c);
 		}
 		else {
-			answer[i] = answer[i] - ('a' - 'A');
+			c = toupper(c);
 		}
 	}
 
-	printf("%s\n", answer);
+	cout << answer << "\n";
 
-	free(answer);
 	return 0;
 }
